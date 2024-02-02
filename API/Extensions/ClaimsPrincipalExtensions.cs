@@ -9,9 +9,9 @@ namespace API.Extensions
             return user.FindFirst(ClaimTypes.Name)?.Value; // we use the ? in order to prevent getting an exception if username is null
         }
 
-        public static string GetUserId(this ClaimsPrincipal user)
+        public static int GetUserId(this ClaimsPrincipal user)
         {
-            return user.FindFirst(ClaimTypes.NameIdentifier)?.Value; // we use the ? in order to prevent getting an exception if username is null
+            return int.Parse(user.FindFirst(ClaimTypes.NameIdentifier)?.Value); // we use the ? in order to prevent getting an exception if username is null
         }
     }
 }

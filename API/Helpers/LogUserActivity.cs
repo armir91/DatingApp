@@ -15,7 +15,7 @@ namespace API.Helpers
             var userId = resultContext.HttpContext.User.GetUserId();
 
             var repo = resultContext.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
-            var user = repo.GetUserById(int.Parse(userId));
+            var user = repo.GetUserById((userId));
             (await user).LastActive = DateTime.UtcNow;
             await repo.SaveAllAsync();
         }

@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ConfirmService {
-bsMOdalRef?: BsModalRef<ConfirmDialogComponent>
+  bsMOdalRef?: BsModalRef<ConfirmDialogComponent>
   constructor(private modalService: BsModalService) { }
 
   confirm(

@@ -1,4 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
 using API.Data;
 using API.Helpers;
 using API.Interfaces;
@@ -12,9 +11,9 @@ namespace API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddDbContext<API.Data.DataContext>(Opt => 
+            services.AddDbContext<DataContext>(Opt => 
                 {
-                    Opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+                    Opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
                 });
 
             services.AddCors(opt =>
